@@ -91,12 +91,11 @@ const loadMoreProducts = () => {
 };
 
 // Função para inicializar o catálogo de produtos
-const initializeCatalog = async () => {
+const initializeCatalog = () => {
   loadingSpinner.classList.remove('hidden');
   try {
-    const response = await fetch('./js/products.json');
-    const data = await response.json();
-    products = data.products;
+    // Acessa a variável global diretamente
+    products = productsData.products;
 
     // Extrai categorias únicas
     allCategories = [...new Set(products.map((p) => p.category))];
