@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minha Loja Online - A sua loja completa</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <svg style="display: none">
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <path
+          d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+        />
+      </symbol>
+      <symbol id="icon-cart" viewBox="0 0 24 24">
+        <path
+          d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z"
+        />
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24">
+        <path
+          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+        />
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path
+          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+        />
+      </symbol>
+    </svg>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-main">
+        <a href="index.html" class="logo">Minha Loja</a>
+        <form id="search-form" class="search-form">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Pesquisar produtos..."
+            aria-label="Pesquisar produtos"
+          />
+          <button type="submit" aria-label="Buscar">
+            <svg><use xlink:href="#icon-search"></use></svg>
+          </button>
+        </form>
+        <div class="header-actions">
+          <a href="#" class="user-menu-trigger">Olá, Entrar</a>
+          <a
+            href="cart.html"
+            class="cart-link"
+            aria-label="Carrinho de compras"
+          >
+            <svg><use xlink:href="#icon-cart"></use></svg>
+            <span id="cart-counter" class="cart-counter">0</span>
+          </a>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Abrir menu de categorias"
+        >
+          <svg><use xlink:href="#icon-menu"></use></svg>
+          Categorias
+        </button>
+        <ul class="nav-links">
+          <li><a href="#">Ofertas do Dia</a></li>
+          <li><a href="#">Lançamentos</a></li>
+          <li><a href="#">Eletrônicos</a></li>
+          <li><a href="#">Casa e Cozinha</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <aside id="sidebar-menu" class="sidebar-menu">
+        <button
+          id="close-sidebar"
+          class="close-sidebar"
+          aria-label="Fechar menu lateral"
+        >
+          <svg><use xlink:href="#icon-close"></use></svg>
+        </button>
+        <nav>
+          <h3 class="sidebar-title">Categorias</h3>
+          <ul id="category-list" class="category-list"></ul>
+        </nav>
+      </aside>
+
+      <section class="promotions-carousel" aria-label="Carrossel de promoções">
+        <div class="carousel-container" id="carousel-container">
+          <div
+            class="carousel-slide"
+            style="background-image: url('./assets/images/banner1.jpg')"
+          ></div>
+          <div
+            class="carousel-slide"
+            style="background-image: url('./assets/images/banner2.jpg')"
+          ></div>
+          <div
+            class="carousel-slide"
+            style="background-image: url('./assets/images/banner3.jpg')"
+          ></div>
+        </div>
+        <button class="carousel-prev" aria-label="Slide anterior">
+          &#10094;
+        </button>
+        <button class="carousel-next" aria-label="Próximo slide">
+          &#10095;
+        </button>
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </section>
+
+      <section class="product-filters">
+        <div class="filter-group">
+          <label for="category-filter">Filtrar por Categoria:</label>
+          <select id="category-filter">
+            <option value="all">Todas</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="price-sort">Ordenar por Preço:</label>
+          <select id="price-sort">
+            <option value="default">Padrão</option>
+            <option value="asc">Menor Preço</option>
+            <option value="desc">Maior Preço</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="product-grid" aria-live="polite">
+        <div class="grid-container" id="product-grid-container"></div>
+        <div
+          id="loading-spinner"
+          class="loading-spinner hidden"
+          role="status"
+          aria-label="Carregando produtos"
+        ></div>
+        <button id="load-more-btn" class="load-more-btn hidden">
+          Carregar Mais
+        </button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Minha Loja</h3>
+          <p>O seu destino online para as melhores ofertas.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Links Úteis</h3>
+          <ul>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <p>Email: contato@minhaloja.com</p>
+          <p>Telefone: (00) 1234-5678</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Minha Loja. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/products.json"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
